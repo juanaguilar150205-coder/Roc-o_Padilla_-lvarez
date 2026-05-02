@@ -1,68 +1,45 @@
-<xs:schema targetNamespace="http://ltsc.ieee.org/xsd/LOM"
-  xmlns="http://ltsc.ieee.org/xsd/LOM"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="IEEE LTSC LOM XML 1.0">
-
-  <xs:annotation>
-    <xs:documentation>
-         This work is licensed under the Creative Commons Attribution-ShareAlike
-         License.  To view a copy of this license, see the file license.txt,
-         visit http://creativecommons.org/licenses/by-sa/2.0 or send a letter to
-         Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
-    </xs:documentation>
-    <xs:documentation>
-         This file represents a composite schema for validating
-         LOM XML Instances.  This file is built by default to represent a
-         composite schema for validation of the following:
-
-         1) The use of LOMv1.0 base schema (i.e., 1484.12.1-2002) vocabulary
-            source/value pairs only
-         2) Uniqueness constraints defined by LOMv1.0 base schema
-         3) No existenace of any defined extensions:
-            LOMv1.0 base schema XML element extension,
-            LOMv1.0 base schema XML attribute extension and
-            LOMv1.0 base schema vocabulary data type extension
-
-         Alternative composite schemas can be assembled by selecting
-         from the various alternative component schema listed below.
-    </xs:documentation>
-  </xs:annotation>
-
-  <!-- Learning Object Metadata -->
-
-  <xs:include schemaLocation="common/anyElement.xsd"/>
-
-  <!-- LOM data element uniqueness constraints:  use one of the following         -->
-  <!-- Use unique/loose.xsd to relax element uniqueness constraints               -->
-  <!-- Use unique/strict.xsd to enforce element uniqueness constraints            -->
-
-  <!-- <xs:import namespace="http://ltsc.ieee.org/xsd/LOM/unique" schemaLocation="unique/loose.xsd"/> -->
-
-  <xs:import namespace="http://ltsc.ieee.org/xsd/LOM/unique" schemaLocation="unique/strict.xsd"/>
-
-  <!-- Vocabulary value validation:  use one of the following                     -->
-  <!-- Use vocab/loose.xsd to relax vocabulary value constraints                  -->
-  <!-- Use vocab/strict.xsd to enforce the LOMv1.0 base schema vocabulary values  -->
-  <!-- Use vocab/custom.xsd to enforce custom vocabulary values                   -->
-
-  <!-- <xs:import namespace="http://ltsc.ieee.org/xsd/LOM/vocab" schemaLocation="vocab/loose.xsd"/> -->
-
-  <!-- <xs:import namespace="http://ltsc.ieee.org/xsd/LOM/vocab" schemaLocation="vocab/strict.xsd"/> -->
-
-  <xs:import namespace="http://ltsc.ieee.org/xsd/LOM/vocab" schemaLocation="vocab/custom.xsd"/>
-
-  <!-- Extension elements/attributes support:  use one of the following           -->
-  <!-- Use extend/strict.xsd to enforce no element/attribute extension            -->
-  <!-- Use extend/custom.xsd to allow element/attribute extension                 -->
-
-  <xs:import namespace="http://ltsc.ieee.org/xsd/LOM/extend" schemaLocation="extend/strict.xsd"/>
-
-  <!--<xs:import namespace="http://ltsc.ieee.org/xsd/LOM/extend" schemaLocation="extend/custom.xsd"/> -->
-
-  <xs:include schemaLocation="common/dataTypes.xsd"/>
-  <xs:include schemaLocation="common/elementNames.xsd"/>
-  <xs:include schemaLocation="common/elementTypes.xsd"/>
-  <xs:include schemaLocation="common/rootElement.xsd"/>
-  <xs:include schemaLocation="common/vocabValues.xsd"/>
-  <xs:include schemaLocation="common/vocabTypes.xsd"/>
-
-</xs:schema>
+<!DOCTYPE html>
+<html lang="es" id="exe-index">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v3.0.2">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="license" type="text/html" href="https://creativecommons.org/licenses/by-sa/4.0/">
+<title>&ldquo;SABORES Y COLORES DEL INVIERNO&rdquo;</title>
+<meta name="description" content="Uno de los aspectos fundamentales para crecer de manera saludable es aprender y
+mantener h&aacute;bitos adecuados de alimentaci&oacute;n.
+En esta propuesta de aprendizaje, el alumnado reconocer&aacute; y distinguir&aacute; los alimentos
+saludables. La alimentaci&oacute;n forma parte de la rutina diaria, y los ni&ntilde;os/as ir&aacute;n adquiriendo
+progresivamente autonom&iacute;a en esta tarea. Adem&aacute;s, comenzar&aacute;n a familiarizarse con
+h&aacute;bitos correctos en la mesa y con rutinas de higiene, como lavarse las manos y los dientes.
+Tambi&eacute;n explorar&aacute;n los lugares donde se pueden conseguir algunos de los alimentos que
+trabajaron previamente, como la fruter&iacute;a, la pescader&iacute;a, la carnicer&iacute;a o la panader&iacute;a.
+Esta situaci&oacute;n de aprendizaje es esencial para cualquier ni&ntilde;o/a, ya que les permite
+desenvolverse con mayor autonom&iacute;a en su entorno familiar y aplicar lo aprendido en su vida
+diaria. Se trabajar&aacute; partiendo de experiencias de la vida cotidiana, favoreciendo as&iacute; el
+desarrollo de competencias.
+El proyecto se llevar&aacute; a cabo utilizando una metodolog&iacute;a activa, integrando adem&aacute;s el uso
+de nuevas tecnolog&iacute;as.">
+<script>document.querySelector("html").classList.add("js");</script><script src="libs/jquery/jquery.min.js"> </script><script src="libs/common_i18n.js"> </script><script src="libs/common.js"> </script><script src="libs/exe_export.js"> </script><script src="libs/bootstrap/bootstrap.bundle.min.js"> </script><script src="libs/exe_atools/exe_atools.js"> </script><script src="libs\SCORM_API_wrapper.js"> </script><script src="libs\SCOFunctions.js"> </script><link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="libs/exe_atools/exe_atools.css">
+<link rel="stylesheet" href="content/css/base.css">
+<script src="theme/style.js"> </script><link rel="stylesheet" href="theme/style.css">
+<link rel="icon" type="image/x-icon" href="libs/favicon.ico">
+</head>
+<body class="exe-export exe-scorm exe-scorm12" lang="es">
+<script>document.body.className+=" js"</script><div class="exe-content exe-export pre-js siteNav-hidden"> <main id="20260502193919BFQKWD" class="page"> <header id="header-20260502193919BFQKWD" class="main-header"> <p class="page-counter"> <span class="page-counter-label">P&aacute;gina </span><span class="page-counter-content"> <strong class="page-counter-current-page">1</strong><span class="page-counter-sep">/</span><strong class="page-counter-total">11</strong></span></p>
+<div class="package-header">
+<h1 class="package-title">&ldquo;SABORES Y COLORES DEL INVIERNO&rdquo;</h1>
+<p class="package-subtitle">Dieta saludable</p>
+</div>
+<div class="page-header"><h2 class="page-title sr-av">&ldquo;SABORES Y COLORES DEL INVIERNO&rdquo;</h2></div></header><div id="page-content-20260502193919BFQKWD" class="page-content"> </div></main><footer id="siteFooter"><div id="siteFooterContent"> <div id="packageLicense" class="cc cc-by-sa"> <p> <span class="license-label">Licencia: </span><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="license">creative commons: attribution - share alike 4.0</a></p>
+</div>
+<div id="siteUserFooter"> <div>Autor: Roc&iacute;o Padilla
+2026</div>
+</div>
+</div></footer>
+</div>
+<p id="made-with-eXe"> <a href="https://exelearning.net/" target="_blank" rel="noopener"> <span>Creado con eXeLearning <span>(nueva ventana)</span></span></a></p>
+</body>
+</html>

@@ -1,106 +1,139 @@
-<?xml version="1.0"?>
-<!-- filename=adlcp_rootv1p2.xsd -->
-<!-- Conforms to w3c http://www.w3.org/TR/xmlschema-1/ 2000-10-24-->
+<xs:schema targetNamespace="http://ltsc.ieee.org/xsd/LOM/vocab"
+           xmlns="http://ltsc.ieee.org/xsd/LOM/vocab"
+           xmlns:lom="http://ltsc.ieee.org/xsd/LOM"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           version="IEEE LTSC LOM XML 1.0">
 
-<xsd:schema xmlns="http://www.adlnet.org/xsd/adlcp_rootv1p2" targetNamespace="http://www.adlnet.org/xsd/adlcp_rootv1p2"
-  xmlns:xml="http://www.w3.org/XML/1998/namespace"
-  xmlns:imscp="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" version="ADL Version 1.2">
+   <xs:annotation>
+      <xs:documentation>
+         This work is licensed under the Creative Commons Attribution-ShareAlike
+         License.  To view a copy of this license, see the file license.txt,
+         visit http://creativecommons.org/licenses/by-sa/2.0 or send a letter to
+         Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
+      </xs:documentation>
 
-  <xsd:import namespace="http://www.imsproject.org/xsd/imscp_rootv1p1p2" schemaLocation="imscp_rootv1p1p2.xsd"/>
+      <xs:documentation>
+         This component schema definition provides simple type declarations for LOM
+         data elements that are defined as Vocabulary data types.
 
-  <xsd:element name="location" type="locationType"/>
-  <xsd:element name="prerequisites" type="prerequisitesType"/>
-  <xsd:element name="maxtimeallowed" type="maxtimeallowedType"/>
-  <xsd:element name="timelimitaction" type="timelimitactionType"/>
-  <xsd:element name="datafromlms" type="datafromlmsType"/>
-  <xsd:element name="masteryscore" type="masteryscoreType"/>
+         This component schema definition enforces that vocabulary values are only those
+         specified in 1484.12.3.  The component schema definition does 
+         not allow custom vocabulary values from other sources.
 
+         NOTE:  This component schema definition supports the validation of strictly 
+         conforming vocabulary values by checking that both sources and values are from the
+         token set defined in the LOMv1.0 base schema.
+      </xs:documentation>
+   </xs:annotation>
 
-  <xsd:element name="schema" type="newSchemaType"/>
-  <xsd:simpleType name="newSchemaType">
-    <xsd:restriction base="imscp:schemaType">
-      <xsd:enumeration value="ADL SCORM"/>
-    </xsd:restriction>
-  </xsd:simpleType>
+   <xs:import namespace="http://ltsc.ieee.org/xsd/LOM" schemaLocation="../lom.xsd"/>
 
-  <xsd:element name="schemaversion" type="newSchemaversionType"/>
-  <xsd:simpleType name="newSchemaversionType">
-    <xsd:restriction base="imscp:schemaversionType">
-      <xsd:enumeration value="1.2"/>
-    </xsd:restriction>
-  </xsd:simpleType>
+   <!-- Vocabulary data type declarations -->
 
+   <!-- Source -->
+   <xs:simpleType name="source">
+      <xs:union memberTypes="lom:sourceValues"/>
+   </xs:simpleType>
 
-  <xsd:attribute name="scormtype">
-    <xsd:simpleType>
-      <xsd:restriction base="xsd:string">
-        <xsd:enumeration value="asset"/>
-        <xsd:enumeration value="sco"/>
-      </xsd:restriction>
-    </xsd:simpleType>
-  </xsd:attribute>
+   <!-- 1.7 Structure -->
+   <xs:simpleType name="structure">
+      <xs:union memberTypes="lom:structureValues"/>
+   </xs:simpleType>
 
-  <xsd:simpleType name="locationType">
-    <xsd:restriction base="xsd:string">
-      <xsd:maxLength value="2000"/>
-    </xsd:restriction>
-  </xsd:simpleType>
+   <!-- 1.8 Aggregation Level -->
+   <xs:simpleType name="aggregationLevel">
+      <xs:union memberTypes="lom:aggregationLevelValues"/>
+   </xs:simpleType>
 
+   <!-- 2.2 Status -->
+   <xs:simpleType name="status">
+      <xs:union memberTypes="lom:statusValues"/>
+   </xs:simpleType>
 
-  <xsd:complexType name="prerequisitesType">
-    <xsd:simpleContent>
-      <xsd:extension base="prerequisiteStringType">
-        <xsd:attributeGroup ref="attr.prerequisitetype"/>
-      </xsd:extension>
-    </xsd:simpleContent>
-  </xsd:complexType>
+   <!-- 2.3.1 Role -->
+   <xs:simpleType name="role">
+      <xs:union memberTypes="lom:roleValues"/>
+   </xs:simpleType>
 
-  <xsd:attributeGroup name="attr.prerequisitetype">
-    <xsd:attribute name="type" use="required">
-      <xsd:simpleType>
-        <xsd:restriction base="xsd:string">
-          <xsd:enumeration value="aicc_script"/>
-        </xsd:restriction>
-      </xsd:simpleType>
-    </xsd:attribute>
-  </xsd:attributeGroup>
+   <!-- 3.2.1 Role -->
+   <xs:simpleType name="roleMeta">
+      <xs:union memberTypes="lom:roleMetaValues"/>
+   </xs:simpleType>
 
-  <xsd:simpleType name="maxtimeallowedType">
-    <xsd:restriction base="xsd:string">
-      <xsd:maxLength value="13"/>
-    </xsd:restriction>
-  </xsd:simpleType>
+   <!-- 4.4.1.1 Type -->
+   <xs:simpleType name="type">
+      <xs:union memberTypes="lom:typeValues"/>
+   </xs:simpleType>
 
-  <xsd:simpleType name="timelimitactionType">
-    <xsd:restriction base="stringType">
-      <xsd:enumeration value="exit,no message"/>
-      <xsd:enumeration value="exit,message"/>
-      <xsd:enumeration value="continue,no message"/>
-      <xsd:enumeration value="continue,message"/>
-    </xsd:restriction>
-  </xsd:simpleType>
+   <!-- 4.4.1.2 Name -->
+   <xs:simpleType name="name">
+      <xs:union memberTypes="lom:nameValues"/>
+   </xs:simpleType>
 
-  <xsd:simpleType name="datafromlmsType">
-    <xsd:restriction base="xsd:string">
-      <xsd:maxLength value="255"/>
-    </xsd:restriction>
-  </xsd:simpleType>
+   <!-- 5.1 Interactivity Type -->
+   <xs:simpleType name="interactivityType">
+      <xs:union memberTypes="lom:interactivityTypeValues"/>
+   </xs:simpleType>
+ 
+   <!-- 5.2 Learning Resource Type -->
+   <xs:simpleType name="learningResourceType">
+      <xs:union memberTypes="lom:learningResourceTypeValues"/>
+   </xs:simpleType>
+ 
+   <!-- 5.3 Interactivity Level -->
+   <xs:simpleType name="interactivityLevel">
+      <xs:union memberTypes="lom:interactivityLevelValues"/>
+   </xs:simpleType>
 
-  <xsd:simpleType name="masteryscoreType">
-    <xsd:restriction base="xsd:string">
-      <xsd:maxLength value="200"/>
-    </xsd:restriction>
-  </xsd:simpleType>
+   <!-- 5.4 Semantic Density -->
+   <xs:simpleType name="semanticDensity">
+      <xs:union memberTypes="lom:semanticDensityValues"/>
+   </xs:simpleType>
 
-  <xsd:simpleType name="stringType">
-    <xsd:restriction base="xsd:string"/>
-  </xsd:simpleType>
+   <!-- 5.5 Intended End User Role -->
+   <xs:simpleType name="intendedEndUserRole">
+      <xs:union memberTypes="lom:intendedEndUserRoleValues"/>
+   </xs:simpleType>
 
-  <xsd:simpleType name="prerequisiteStringType">
-    <xsd:restriction base="xsd:string">
-      <xsd:maxLength value="200"/>
-    </xsd:restriction>
-  </xsd:simpleType>
+   <!-- 5.6 Context -->
+   <xs:simpleType name="context">
+      <xs:union memberTypes="lom:contextValues"/>
+   </xs:simpleType>
 
-</xsd:schema>
+   <!-- 5.8 Difficulty -->
+   <xs:simpleType name="difficulty">
+      <xs:union memberTypes="lom:difficultyValues"/>
+   </xs:simpleType>
+
+   <!-- 5.12 Cognitive Process -->
+   <xs:simpleType name="cognitiveProcess">
+      <xs:union memberTypes="lom:cognitiveProcessValues"/>
+   </xs:simpleType>
+
+   <!-- 6.1 Cost -->
+   <xs:simpleType name="cost">
+      <xs:union memberTypes="lom:costValues"/>
+   </xs:simpleType>
+
+   <!-- 6.2 Copyright and Other Restrictions -->
+   <xs:simpleType name="copyrightAndOtherRestrictions">
+      <xs:union memberTypes="lom:copyrightAndOtherRestrictionsValues"/>
+   </xs:simpleType>
+
+   <!-- 6.4.1 Access Type -->
+   <xs:simpleType name="accessType">
+      <xs:union memberTypes="lom:accessTypeValues"/>
+   </xs:simpleType>
+
+   <!-- 7.1 Kind -->
+   <xs:simpleType name="kind">
+      <xs:union memberTypes="lom:kindValues"/>
+   </xs:simpleType>
+
+   <!-- 9.1 Purpose -->
+   <xs:simpleType name="purpose">
+      <xs:union memberTypes="lom:purposeValues"/>
+   </xs:simpleType>
+
+</xs:schema>
